@@ -1,0 +1,15 @@
+#N canvas 800 344 974 626 12;
+#X obj 146 50 beat;
+#X obj 146 103 *, f 5;
+#X obj 146 76 t b f;
+#X obj 146 23 inlet freq;
+#X obj 235 21 inlet enabled;
+#X obj 86 135 pigpio \$1;
+#X text 270 54 Flashes a LED connected to gpio pin \$1 at the rate
+of the given frequency.;
+#X connect 0 0 2 0;
+#X connect 1 0 5 1;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;

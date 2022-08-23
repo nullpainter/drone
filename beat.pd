@@ -1,0 +1,34 @@
+#N canvas 1250 720 958 646 10;
+#X msg 89 127 tempo \$1 sec;
+#X obj 89 167 metro;
+#X obj 89 7 inlet;
+#X obj 308 86 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 122 36 > 0;
+#X text 131 7 modulating frequency;
+#X obj 89 67 spigot;
+#X floatatom 39 46 5 0 0 0 - - -;
+#X text 328 84 enable metro if we have a freq;
+#X obj 89 239 + 1;
+#X obj 89 205 f;
+#X obj 89 269 mod 2;
+#X obj 89 303 outlet;
+#X obj 89 95 expr (1 / $f1) / 2;
+#X text 313 113 TODO fixme - is this triggering the metro all the time?
+;
+#X obj 31 136 bng 15 250 50 1 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 10 0;
+#X connect 2 0 7 0;
+#X connect 2 0 4 0;
+#X connect 2 0 6 0;
+#X connect 4 0 6 1;
+#X connect 4 0 3 0;
+#X connect 6 0 13 0;
+#X connect 9 0 10 1;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 13 0 0 0;
+#X connect 15 0 1 0;
