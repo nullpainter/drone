@@ -6,10 +6,6 @@ It uses wavetable synthesis to generate sine, triangle and sine+triangle wavefor
 
 To interface the front panel, it uses MCP3008 ICs for analog-to-digital conversion, and two MCP23S17 ICs for GPIO port expansion. These all use SPI bit-banging using the excellent [pigpio](https://abyz.me.uk/rpi/pigpio/) library. I wrote PureData externals to read from both ICs and perform regular GPIO writes. These are available in my [GitHub repository](https://github.com/nullpainter/pdpigpio).
 
-The front panel was designed in Illustrator, used the Inkscape [Synth Panel Designer](https://synthpanels.design/) plugin for the tick marks, and was ~~heavily inspired~~ ripped off from Moog designs. It's printed on a vinyl sticker and attached to a sheet of aluminium. The wooden case is made of Kauri, a New Zealand hardwood, and was sourced from recycled floor boards.
-
-This is my first project using Pure Data, my first foray into SPI and GPIO, and my first from-scratch instrument design. I'm pretty happy with the results, and it's a fun toy to play with. 
-
 ## Running
 
 1 Clone and build [pdpigpio](https://github.com/nullpainter/pdpigpio
