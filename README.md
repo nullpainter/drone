@@ -8,7 +8,7 @@ To interface the front panel controls, it uses MCP3008 ICs for analog-to-digital
 
 ## Running
 
-1 Clone and build [pdpigpio](https://github.com/nullpainter/pdpigpio)
+1. Clone and build [pdpigpio](https://github.com/nullpainter/pdpigpio)
 1. Add pdpigpio folders and `externals` folder to pd startup paths
 1. Update GPIO pin mappings based on wiring
 
