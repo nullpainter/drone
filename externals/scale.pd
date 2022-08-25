@@ -1,6 +1,0 @@
-#N canvas 488 511 1118 664 12;
-#X obj 15 77 outlet;
-#X obj 15 18 inlet value;
-#X obj 15 48 expr $f1 * (\$2 - \$1) + \$1;
-#X connect 1 0 2 0;
-#X connect 2 0 0 0;

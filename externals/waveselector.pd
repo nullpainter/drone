@@ -1,9 +1,9 @@
-#N canvas 1186 124 2339 1353 10;
-#X obj 312 102 print invalid_input;
-#X obj 125 43 inlet;
-#X obj 125 246 outlet~;
+#N canvas 0 0 1920 984 10;
+#X obj 239 105 print invalid_input;
+#X obj 52 46 inlet;
+#X obj 52 249 outlet~;
 #N canvas 8 81 450 250 (subpatch) 0;
-#X array \$0-sin 515 float 3;
+#X array \$0-sin 515 float 3 black black;
 #A 0 -0.0122715 0 0.0122715 0.0245412 0.0368072 0.0490676 0.0613207
 0.0735645 0.0857972 0.0980171 0.110222 0.122411 0.134581 0.14673 0.158858
 0.170962 0.18304 0.19509 0.207111 0.219101 0.231058 0.24298 0.254865
@@ -74,17 +74,17 @@
 -0.146736 -0.134586 -0.122416 -0.110227 -0.0980223 -0.0858025 -0.0735698
 -0.061326 -0.0490729 -0.0368125 -0.0245465 -0.0122768 -5.30718e-06
 0.0122662;
-#X coords 0 1 515 -1 200 140 1 0 0;
-#X restore 922 195 graph;
-#X obj 501 65 \$0;
-#X floatatom 761 246 5 0 0 0 - - -;
-#X obj 761 266 expr 1/$f1;
-#X floatatom 761 291 10 0 0 0 - - -;
-#X obj 761 314 print;
-#X text 760 225 harmonic calculation;
-#X obj 501 37 loadbang;
+#X coords 0 1 515 -1 200 140 1;
+#X restore 849 198 graph;
+#X obj 428 68 \$0;
+#X floatatom 688 249 5 0 0 0 - - -, f 5;
+#X obj 688 269 expr 1/$f1;
+#X floatatom 688 294 10 0 0 0 - - -, f 10;
+#X obj 688 317 print;
+#X text 687 228 harmonic calculation;
+#X obj 428 40 loadbang;
 #N canvas 16 112 450 250 (subpatch) 0;
-#X array \$0-saw 515 float 3;
+#X array \$0-saw 515 float 3 black black;
 #A 0 -0.085036 0 0.085036 0.16938 0.252349 0.333281 0.411541 0.486531
 0.5577 0.624548 0.686636 0.743589 0.7951 0.840938 0.880943 0.915034
 0.943204 0.965519 0.982118 0.993209 0.999061 1 0.996405 0.988697 0.977334
@@ -155,21 +155,21 @@
 -0.982124 -0.965527 -0.943214 -0.915048 -0.880959 -0.840957 -0.795121
 -0.743612 -0.686662 -0.624576 -0.55773 -0.486563 -0.411574 -0.333316
 -0.252385 -0.169416 -0.0850727 -3.68254e-05 0.0849994;
-#X coords 0 1 515 -1 200 140 1 0 0;
-#X restore 917 20 graph;
-#X obj 125 151 sig~;
-#X msg 237 175 set \$1-sin;
-#X msg 274 151 set \$1-saw;
-#X obj 237 101 \$0;
-#X obj 274 101 \$0;
-#X obj 476 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 125 215 tabosc4~;
-#X obj 237 43 inlet;
-#X msg 501 94 \; \$1-saw sinesum 512 1 0.5 0.333333 0.25 0.2 0.166667
+#X coords 0 1 515 -1 200 140 1;
+#X restore 844 23 graph;
+#X obj 52 154 sig~;
+#X msg 164 178 set \$1-sin;
+#X msg 201 154 set \$1-saw;
+#X obj 164 104 \$0;
+#X obj 201 104 \$0;
+#X obj 403 41 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 52 218 tabosc4~;
+#X obj 164 46 inlet;
+#X msg 428 97 \; \$1-saw sinesum 512 1 0.5 0.333333 0.25 0.2 0.166667
 0.142857 0.124 0.111111 0.1 0.0909091 0.0833333 \; \$1-saw normalize
 1 \; \; \$1-sin sinesum 512 1 \; \;;
-#X obj 237 72 route sin saw;
+#X obj 164 75 route sin saw;
 #X connect 1 0 12 0;
 #X connect 4 0 20 0;
 #X connect 5 0 6 0;
