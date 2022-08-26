@@ -1,6 +1,6 @@
 # nullPainter Drone I
 
-<img src="images/hero.jpg" title="Das Blinkenlights" align="left"></a>
+<img src="images/hero.gif" title="Das Blinkenlights" align="left"></a>
 
 The nullPainter Drone I is a four-oscillator drone synthesizer, driven by PureData Vanilla and running on a Raspberry Pi 4 Model B.
 
