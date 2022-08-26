@@ -1,4 +1,4 @@
-#N canvas 0 0 1920 984 10;
+#N canvas 0 55 1920 985 10;
 #X obj 373 578 modulate~, f 11;
 #X obj 657 628 modulate~, f 11;
 #X obj 905 669 modulate~, f 11;
@@ -10,13 +10,13 @@
 #X obj 406 275 selector, f 17;
 #X obj 688 313 selector, f 17;
 #X obj 937 407 selector, f 11;
-#N canvas 0 0 1936 1000 subosc 0;
+#N canvas 1875 542 1936 1000 subosc 0;
 #X obj 20 166 +~;
 #X obj 20 194 outlet~;
-#X obj 80 68 nbx 5 14 0 2 0 1 empty empty empty 0 -8 0 10 #fcfcfc #000000
-#000000 0.5 256 0;
+#X obj 80 68 nbx 5 14 0 2 0 1 empty empty empty 0 -8 0 10 -262144 -1
+-1 0.5 256;
 #X obj 165 71 smooth~;
-#X floatatom 245 63 5 0 0 0 - - -, f 5;
+#X floatatom 245 63 5 0 0 0 - - -;
 #X obj 20 106 expr~ $v1 * $f2 * $v3, f 25;
 #X obj 165 28 inlet;
 #X obj 80 27 inlet;
@@ -32,8 +32,8 @@
 #X connect 8 0 0 1;
 #X connect 9 0 5 0;
 #X restore 90 448 pd subosc;
-#X obj 124 398 nbx 4 14 0.1 2 0 0 empty empty osc_vol 0 -8 0 10 #fcfcfc
-#000000 #000000 0.1 256 0;
+#X obj 124 398 nbx 4 14 0.1 2 0 0 empty empty osc_vol 0 -8 0 10 -262144
+-1 -1 0.1 256;
 #X obj 507 411 *;
 #X obj 770 479 *;
 #X obj 971 564 *;
@@ -43,11 +43,22 @@
 #X obj 529 371 t b f;
 #X obj 722 139 negate;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array output 100 float 1 black black;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0;
+#X array output 100 float 1;
+#A 0 0.349488 0.343028 0.335941 0.32825 0.319978 0.311151 0.301796
+0.291942 0.281623 0.270872 0.259723 0.248211 0.236374 0.224247 0.21187
+0.199277 0.186509 0.173602 0.160592 0.147516 0.134407 0.121301 0.108234
+0.0952364 0.0823389 0.0695722 0.0569639 0.0445448 0.0323394 0.0203741
+0.00867439 -0.00273882 -0.0138423 -0.024615 -0.0350371 -0.0450894 -0.0547559
+-0.0640196 -0.0728652 -0.0812796 -0.0892504 -0.0967659 -0.103816 -0.110394
+-0.116492 -0.122105 -0.127228 -0.131861 -0.136003 -0.139653 -0.142816
+-0.145497 -0.147699 -0.149433 -0.150706 -0.15153 -0.151918 -0.151883
+-0.151439 -0.150605 -0.149396 -0.147833 -0.145934 -0.143719 -0.141276
+-0.138555 -0.135579 -0.132369 -0.128947 -0.125337 -0.121558 -0.117633
+-0.113584 -0.10943 -0.105193 -0.100892 -0.0965464 -0.0921731 -0.0877898
+-0.0834131 -0.0790589 -0.07474 -0.070471 -0.0662628 -0.0621278 -0.0580759
+-0.0541156 -0.050256 -0.0465035 -0.0428646 -0.0393444 -0.0359474 -0.0326772
+-0.0295364 -0.0265277 -0.0236513 -0.0209092 -0.0183002 -0.0158245 -0.0134809
+;
 #X coords 0 1 99 -1 200 140 1;
 #X restore 1230 155 graph;
 #X obj 1237 396 tabwrite~ output;
@@ -66,7 +77,7 @@
 #X obj 1081 285 r osc4_freq;
 #X obj 97 170 r osc1_sin;
 #X obj 159 186 r osc1_tri;
-#N canvas 0 0 1920 984 gpioRouter 0;
+#N canvas 552 107 1920 984 gpioRouter 0;
 #X obj 309 -30325 unpack f f f f f f f f;
 #X obj 670 -30465 pigpio_init;
 #X obj 312 -30358 pigpio_mcp3008 25 6 12 5;
@@ -129,7 +140,7 @@
 #X obj 535 -30158 loadbang;
 #X obj 599 -30496 t b b;
 #X text 221 -30360 MCP3008 ICs;
-#N canvas 1912 0 1936 1000 octaveselect 0;
+#N canvas 1912 63 1936 1000 octaveselect 0;
 #X obj 201 144 octave;
 #X obj 201 74 r osc2_octave1;
 #X obj 217 97 r osc2_octave2;
@@ -154,6 +165,7 @@
 #X obj 72 103 r osc1_octave3;
 #X obj 38 186 s osc1_octave;
 #X obj 201 168 debounce;
+#X connect 0 0 23 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
 #X connect 3 0 0 2;
@@ -249,7 +261,7 @@
 #X connect 67 0 51 0;
 #X connect 68 0 52 0;
 #X restore 194 581 pd gpioRouter;
-#N canvas 0 0 1920 984 vco 0;
+#N canvas 1393 643 1920 984 vco 0;
 #X obj 35 156 metro 10;
 #X obj 105 208 snapshot~;
 #X obj 105 259 *;
@@ -283,7 +295,7 @@
 #X obj 527 345 r osc2_amt;
 #X obj 794 423 r osc3_amt;
 #X obj 1007 487 r osc4_amt;
-#N canvas 0 0 1920 984 effects 0;
+#N canvas 8 63 1920 984 effects 0;
 #X obj 205 326 chorus_sdd_320;
 #X obj 205 403 compressor~;
 #X obj 331 409 compressor~;
@@ -296,11 +308,11 @@
 #X obj 316 543 *~;
 #X obj 204 639 +~;
 #X obj 301 642 -~;
-#X obj 359 503 hsl 128 15 0 2 0 1 empty empty side -2 -8 0 10 #fcfcfc
-#000000 #000000 9900 1;
+#X obj 359 503 hsl 128 15 0 2 0 1 empty empty side -2 -8 0 10 -262144
+-1 -1 9900 1;
 #X obj 205 544 *~;
-#X obj 55 488 hsl 128 15 0 1 0 1 empty empty mid -2 -8 0 10 #fcfcfc
-#000000 #000000 12700 1;
+#X obj 55 488 hsl 128 15 0 1 0 1 empty empty mid -2 -8 0 10 -262144
+-1 -1 12700 1;
 #X msg 374 350 threshold -12 \, ratio 40 \, response 40 \, gain 0 \,
 rmspeak 0 \, lookahead 5;
 #X obj 301 721 s~ out;
@@ -309,9 +321,9 @@ rmspeak 0 \, lookahead 5;
 #X obj 203 684 smoothvol~;
 #X obj 301 687 smoothvol~;
 #X obj 395 751 hsl 128 15 0 0.1 0 1 empty empty pan_speed -2 -8 0 10
-#fcfcfc #000000 #000000 3600 1;
+-262144 -1 -1 3600 1;
 #X obj 393 788 hsl 128 15 0 1 0 1 empty empty pan_amplitude -2 -8 0
-10 #fcfcfc #000000 #000000 8300 1;
+10 -262144 -1 -1 8300 1;
 #X obj 203 780 panner~;
 #X obj 239 218 bob~, f 19;
 #X obj 350 101 / 25;
@@ -338,6 +350,10 @@ rmspeak 0 \, lookahead 5;
 #X obj 350 69 scalef 2 200;
 #X obj 217 94 scalef 100 10000;
 #X obj 460 164 scalef 0.2 20;
+#X obj 290 890 writesf~ 2;
+#X msg 392 867 start;
+#X msg 424 902 stop;
+#X msg 486 844 open /home/patch/mod12.wav;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 1 0 5 0;
@@ -367,7 +383,9 @@ rmspeak 0 \, lookahead 5;
 #X connect 21 0 23 2;
 #X connect 22 0 23 3;
 #X connect 23 0 3 0;
+#X connect 23 0 49 0;
 #X connect 23 1 3 1;
+#X connect 23 1 49 1;
 #X connect 24 0 29 0;
 #X connect 24 0 29 1;
 #X connect 25 0 28 0;
@@ -393,6 +411,9 @@ rmspeak 0 \, lookahead 5;
 #X connect 46 0 25 0;
 #X connect 47 0 26 0;
 #X connect 48 0 30 0;
+#X connect 50 0 49 0;
+#X connect 51 0 49 0;
+#X connect 52 0 49 0;
 #X restore 195 626 pd effects;
 #X obj 190 211 r osc1_octave;
 #X obj 898 363 r osc4_sin;
@@ -418,8 +439,8 @@ rmspeak 0 \, lookahead 5;
 #X obj 322 133 s freq;
 #X obj 310 686 s overdrive;
 #X obj 511 488 r overdrive;
-#X obj 311 651 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 0 1;
+#X obj 311 651 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
 #X obj 462 546 expr $f1 * (1+$f2);
 #X obj 517 515 t b f;
 #X obj 829 491 r overdrive;
@@ -463,9 +484,11 @@ rmspeak 0 \, lookahead 5;
 #X connect 9 0 1 1;
 #X connect 9 1 81 0;
 #X connect 9 2 81 1;
+#X connect 9 2 14 0;
 #X connect 10 0 2 1;
 #X connect 10 1 80 0;
 #X connect 10 2 80 1;
+#X connect 10 2 15 0;
 #X connect 11 0 26 0;
 #X connect 12 0 11 2;
 #X connect 13 0 59 0;
@@ -485,8 +508,8 @@ rmspeak 0 \, lookahead 5;
 #X connect 28 0 27 0;
 #X connect 30 0 82 1;
 #X connect 30 0 11 3;
-#X connect 31 0 77 1;
 #X connect 31 0 20 0;
+#X connect 31 0 77 1;
 #X connect 32 0 64 0;
 #X connect 33 0 3 2;
 #X connect 34 0 4 2;
@@ -512,6 +535,7 @@ rmspeak 0 \, lookahead 5;
 #X connect 54 0 11 0;
 #X connect 55 0 11 1;
 #X connect 55 1 79 1;
+#X connect 55 2 56 0;
 #X connect 57 0 3 0;
 #X connect 58 0 59 1;
 #X connect 59 0 69 0;
