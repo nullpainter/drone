@@ -2,7 +2,7 @@
 
 The nullPainter Drone I is a four-oscillator drone synthesizer, driven by PureData Vanilla and running on a Raspberry Pi 4 Model B.
 
-<img src="images/hero.gif" title="Das Blinkenlights" align="left" style="margin-bottom:20px"></a>
+<img src="images/hero.gif" title="Das Blinkenlights"></a>
 
 &nbsp;
 
@@ -19,3 +19,5 @@ To interface the front panel controls, it uses MCP3008 ICs for analog-to-digital
 ### GPIO pin mappings
 
 Your pin mappings will most likely be different to mine. The MCP3008 and MCP23S17 pin mappings are defined in the `gpiorouter` subpatch. Additionally, pin mappings for LEDs are specified in the `freqbeat` and `pigpio` externals, used in the main drone patch.
+
+<img src="images/fullpatch.png" title="Full patch"></a>
