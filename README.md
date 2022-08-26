@@ -2,7 +2,7 @@
 
 The nullPainter Drone I is a four-oscillator drone synthesizer, driven by PureData Vanilla and running on a Raspberry Pi 4 Model B.
 
-<img src="images/hero.gif" title="Das Blinkenlights" align="left"></a>
+<img src="images/hero.gif" title="Das Blinkenlights" align="left" style="margin-bottom:20px"></a>
 
 It uses wavetable synthesis to generate sine, triangle and sine+triangle waveforms for each oscillator. Oscillators are selectively modulated together and each have a three-octave control. The Drone I features LFO and VCO against the first oscillator, a sub-oscillator, resonance control, a flanger and blinkenlights for aesthetics. Audio is run through a stereo chorus, panner, compressor, and mid-side mixing. 
 
