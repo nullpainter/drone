@@ -20,4 +20,6 @@ To interface the front panel controls, it uses MCP3008 ICs for analog-to-digital
 
 Your pin mappings will most likely be different to mine. The MCP3008 and MCP23S17 pin mappings are defined in the `gpiorouter` subpatch. Additionally, pin mappings for LEDs are specified in the `freqbeat` and `pigpio` externals, used in the main drone patch.
 
+## 
+
 <img src="images/full-patch.png" title="Full patch"></a>
