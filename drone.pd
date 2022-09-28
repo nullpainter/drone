@@ -1,4 +1,5 @@
-#N canvas 0 55 1920 985 10;
+#N canvas 119 149 1584 836 10;
+#X declare -path ./externals;
 #X obj 373 578 modulate~, f 11;
 #X obj 657 628 modulate~, f 11;
 #X obj 905 669 modulate~, f 11;
@@ -10,13 +11,13 @@
 #X obj 406 275 selector, f 17;
 #X obj 688 313 selector, f 17;
 #X obj 937 407 selector, f 11;
-#N canvas 1875 542 1936 1000 subosc 0;
+#N canvas 0 274 1936 1000 subosc 0;
 #X obj 20 166 +~;
 #X obj 20 194 outlet~;
-#X obj 80 68 nbx 5 14 0 2 0 1 empty empty empty 0 -8 0 10 -262144 -1
--1 0.5 256;
+#X obj 80 68 nbx 5 14 0 2 0 1 empty empty empty 0 -8 0 10 #fcfcfc #000000
+#000000 1 256 0;
 #X obj 165 71 smooth~;
-#X floatatom 245 63 5 0 0 0 - - -;
+#X floatatom 245 63 5 0 0 0 - - -, f 5;
 #X obj 20 106 expr~ $v1 * $f2 * $v3, f 25;
 #X obj 165 28 inlet;
 #X obj 80 27 inlet;
@@ -32,8 +33,8 @@
 #X connect 8 0 0 1;
 #X connect 9 0 5 0;
 #X restore 90 448 pd subosc;
-#X obj 124 398 nbx 4 14 0.1 2 0 0 empty empty osc_vol 0 -8 0 10 -262144
--1 -1 0.1 256;
+#X obj 123 394 nbx 4 14 0.1 2 0 0 empty empty osc_vol 0 -8 0 10 #fcfcfc
+#000000 #000000 0.1 256 0;
 #X obj 507 411 *;
 #X obj 770 479 *;
 #X obj 971 564 *;
@@ -42,23 +43,21 @@
 #X obj 794 450 t b f;
 #X obj 529 371 t b f;
 #X obj 722 139 negate;
-#N canvas 0 50 450 250 (subpatch) 0;
-#X array output 100 float 1;
-#A 0 0.349488 0.343028 0.335941 0.32825 0.319978 0.311151 0.301796
-0.291942 0.281623 0.270872 0.259723 0.248211 0.236374 0.224247 0.21187
-0.199277 0.186509 0.173602 0.160592 0.147516 0.134407 0.121301 0.108234
-0.0952364 0.0823389 0.0695722 0.0569639 0.0445448 0.0323394 0.0203741
-0.00867439 -0.00273882 -0.0138423 -0.024615 -0.0350371 -0.0450894 -0.0547559
--0.0640196 -0.0728652 -0.0812796 -0.0892504 -0.0967659 -0.103816 -0.110394
--0.116492 -0.122105 -0.127228 -0.131861 -0.136003 -0.139653 -0.142816
--0.145497 -0.147699 -0.149433 -0.150706 -0.15153 -0.151918 -0.151883
--0.151439 -0.150605 -0.149396 -0.147833 -0.145934 -0.143719 -0.141276
--0.138555 -0.135579 -0.132369 -0.128947 -0.125337 -0.121558 -0.117633
--0.113584 -0.10943 -0.105193 -0.100892 -0.0965464 -0.0921731 -0.0877898
--0.0834131 -0.0790589 -0.07474 -0.070471 -0.0662628 -0.0621278 -0.0580759
--0.0541156 -0.050256 -0.0465035 -0.0428646 -0.0393444 -0.0359474 -0.0326772
--0.0295364 -0.0265277 -0.0236513 -0.0209092 -0.0183002 -0.0158245 -0.0134809
-;
+#N canvas 0 50 647 424 (subpatch) 0;
+#X array output 100 float 1 black black;
+#A 0 0.122114 0.123306 0.124375 0.125267 0.125935 0.126336 0.126436
+0.126213 0.125658 0.124773 0.123578 0.122104 0.120396 0.118508 0.116503
+0.114452 0.112423 0.110491 0.108724 0.107189 0.105943 0.105039 0.104519
+0.104416 0.104751 0.105535 0.106765 0.108425 0.110488 0.112912 0.115643
+0.118616 0.121757 0.124985 0.128218 0.131373 0.134372 0.137147 0.139638
+0.141803 0.143615 0.145063 0.146152 0.146902 0.147341 0.147506 0.147439
+0.147183 0.146778 0.146261 0.145663 0.145007 0.14431 0.143583 0.142827
+0.14204 0.141212 0.14033 0.139376 0.138328 0.137163 0.135854 0.134378
+0.132712 0.130839 0.128746 0.126433 0.123905 0.12118 0.11829 0.115273
+0.112181 0.109071 0.106005 0.103047 0.10026 0.0977035 0.0954307 0.0934865
+0.0919071 0.0907189 0.0899391 0.0895755 0.0896266 0.0900833 0.0909264
+0.0921316 0.0936642 0.0954817 0.0975327 0.0997583 0.102094 0.104472
+0.106816 0.109051 0.11111 0.112929 0.114455 0.115647 0.116477;
 #X coords 0 1 99 -1 200 140 1;
 #X restore 1230 155 graph;
 #X obj 1237 396 tabwrite~ output;
@@ -77,73 +76,73 @@
 #X obj 1081 285 r osc4_freq;
 #X obj 97 170 r osc1_sin;
 #X obj 159 186 r osc1_tri;
-#N canvas 552 107 1920 984 gpioRouter 0;
-#X obj 309 -30325 unpack f f f f f f f f;
-#X obj 670 -30465 pigpio_init;
-#X obj 312 -30358 pigpio_mcp3008 25 6 12 5;
-#X obj 598 -30520 loadbang;
-#X obj 265 -30017 pigpio_mcp23s17 24 16 20 21;
-#X obj 265 -29993 unpack f f f f f f f f f f f f f f f f;
-#X obj 831 -30019 unpack f f f f f f f f f f f f f f f f;
-#X obj 539 -30101 t b b;
-#X obj 601 -30440 t b b;
-#X obj 578 -29954 s sub-osc;
-#X obj 350 -29947 s lfo;
-#X obj 324 -29926 s vco;
-#X obj 758 -30374 pigpio_mcp3008 9 6 12 5;
-#X obj 779 -30240 s osc1_freq;
-#X obj 807 -30267 s osc2_freq;
-#X obj 508 -30204 s osc3_freq;
-#X obj 211 -30166 s osc4_freq;
-#X obj 877 -29817 s osc1_sin;
-#X obj 771 -29818 s osc1_tri;
-#X obj 920 -30318 s osc2_amt;
-#X obj 254 -30192 s osc3_amt;
-#X obj 901 -30294 s osc4_amt;
-#X obj 891 -30269 s filter-cutoff;
-#X obj 757 -30213 s filter-resonance;
-#X obj 516 -30230 s flanger-speed;
-#X obj 334 -30244 s flanger-intensity;
-#X obj 538 -30252 s flanger-feedback;
-#X obj 289 -30220 s flanger-mix;
-#X obj 1039 -29879 s osc1_octave1;
-#X obj 1007 -29828 s osc1_octave2;
-#X obj 1028 -29856 s osc1_octave3;
-#X obj 832 -29971 expr $f1 || $f2;
-#X obj 726 -29970 expr $f1 || $f2;
-#X obj 855 -29941 s osc4_sin;
-#X obj 725 -29942 s osc4_tri;
-#X obj 614 -29912 s osc2_octave1;
-#X obj 596 -29888 s osc2_octave2;
-#X obj 590 -29863 s osc2_octave3;
-#X obj 297 -29904 s osc3_octave1;
-#X obj 213 -29857 s osc3_octave2;
-#X obj 252 -29882 s osc3_octave3;
-#X obj 88 -29792 s osc4_octave3;
-#X obj 170 -29837 s osc4_octave1;
-#X obj 133 -29817 s osc4_octave2;
-#X obj 535 -30129 metro 10;
-#X obj 600 -30465 metro 10;
-#X obj 477 -29841 s osc3_tri;
-#X obj 468 -29786 s osc3_sin;
-#X obj 468 -29813 expr $f1 || $f2;
-#X obj 476 -29870 expr $f1 || $f2;
-#X obj 554 -30274 s vol;
-#X obj 1172 -29848 expr $f1 || $f2;
-#X obj 1186 -29975 expr $f1 || $f2;
-#X obj 1173 -29821 s osc2_sin;
-#X obj 1207 -29946 s osc2_tri;
-#X obj 827 -30050 pigpio_mcp23s17 13 16 20 21;
-#X obj 770 -29846 expr $f1 || $f2;
-#X obj 875 -29848 expr $f1 || $f2;
-#X obj 756 -30351 unpack f f f f f f;
-#X obj 535 -30158 loadbang;
-#X obj 599 -30496 t b b;
-#X text 221 -30360 MCP3008 ICs;
-#N canvas 1912 63 1936 1000 octaveselect 0;
+#N canvas 230 144 1484 870 gpioRouter 0;
+#X obj 300 2411 unpack f f f f f f f f;
+#X obj 670 2269 pigpio_init;
+#X obj 312 2376 pigpio_mcp3008 25 6 12 5;
+#X obj 599 2189 loadbang;
+#X obj 296 2702 pigpio_mcp23s17 24 16 20 21;
+#X obj 265 2741 unpack f f f f f f f f f f f f f f f f;
+#X obj 831 2715 unpack f f f f f f f f f f f f f f f f;
+#X obj 539 2633 t b b;
+#X obj 601 2294 t b b;
+#X obj 578 2780 s sub-osc;
+#X obj 350 2787 s lfo;
+#X obj 324 2808 s vco;
+#X obj 758 2360 pigpio_mcp3008 9 6 12 5;
+#X obj 779 2494 s osc1_freq;
+#X obj 807 2467 s osc2_freq;
+#X obj 508 2530 s osc3_freq;
+#X obj 211 2568 s osc4_freq;
+#X obj 877 2917 s osc1_sin;
+#X obj 771 2916 s osc1_tri;
+#X obj 920 2416 s osc2_amt;
+#X obj 254 2542 s osc3_amt;
+#X obj 901 2440 s osc4_amt;
+#X obj 891 2465 s filter-cutoff;
+#X obj 757 2521 s filter-resonance;
+#X obj 516 2504 s flanger-speed;
+#X obj 334 2490 s flanger-intensity;
+#X obj 538 2482 s flanger-feedback;
+#X obj 289 2514 s flanger-mix;
+#X obj 1039 2855 s osc1_octave1;
+#X obj 1007 2906 s osc1_octave2;
+#X obj 1028 2878 s osc1_octave3;
+#X obj 832 2763 expr $f1 || $f2;
+#X obj 726 2764 expr $f1 || $f2;
+#X obj 855 2793 s osc4_sin;
+#X obj 725 2792 s osc4_tri;
+#X obj 614 2822 s osc2_octave1;
+#X obj 596 2846 s osc2_octave2;
+#X obj 590 2871 s osc2_octave3;
+#X obj 297 2830 s osc3_octave1;
+#X obj 213 2877 s osc3_octave2;
+#X obj 252 2852 s osc3_octave3;
+#X obj 88 2942 s osc4_octave3;
+#X obj 170 2897 s osc4_octave1;
+#X obj 133 2917 s osc4_octave2;
+#X obj 535 2605 metro 10;
+#X obj 600 2269 metro 10;
+#X obj 477 2893 s osc3_tri;
+#X obj 468 2948 s osc3_sin;
+#X obj 468 2921 expr $f1 || $f2;
+#X obj 476 2864 expr $f1 || $f2;
+#X obj 554 2460 s vol;
+#X obj 1172 2886 expr $f1 || $f2;
+#X obj 1186 2759 expr $f1 || $f2;
+#X obj 1173 2913 s osc2_sin;
+#X obj 1207 2788 s osc2_tri;
+#X obj 827 2684 pigpio_mcp23s17 13 16 20 21;
+#X obj 752 2874 expr $f1 || $f2;
+#X obj 885 2887 expr $f1 || $f2;
+#X obj 756 2383 unpack f f f f f f;
+#X obj 535 2576 loadbang;
+#X obj 599 2238 t b b;
+#X text 221 2374 MCP3008 ICs;
+#N canvas 62 149 600 536 octaveselect 0;
 #X obj 201 144 octave;
-#X obj 201 74 r osc2_octave1;
-#X obj 217 97 r osc2_octave2;
+#X obj 201 67 r osc2_octave1;
+#X obj 217 91 r osc2_octave2;
 #X obj 234 118 r osc2_octave3;
 #X obj 202 197 s osc2_octave;
 #X obj 31 299 octave;
@@ -165,6 +164,27 @@
 #X obj 72 103 r osc1_octave3;
 #X obj 38 186 s osc1_octave;
 #X obj 201 168 debounce;
+#X floatatom 325 190 5 0 0 0 - - -, f 5;
+#X obj 187 35 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 229 40 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 276 38 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 414 154 octave;
+#X obj 427 180 debounce;
+#X floatatom 485 226 5 0 0 0 - - -, f 5;
+#X obj 400 45 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 442 50 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 489 48 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 414 77;
+#X obj 430 101;
+#X obj 447 128;
+#X obj 415 207;
+#X floatatom 375 259 5 0 0 0 - - -, f 5;
 #X connect 0 0 23 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -185,14 +205,33 @@
 #X connect 20 0 10 1;
 #X connect 21 0 10 2;
 #X connect 23 0 4 0;
-#X restore 261 -30496 pd octaveselect;
-#X text 44 -30497 Combine and debounce octave inputs;
-#X text 759 -30466 Initialise GPIO on startup;
-#X text 172 -30013 MCP23S17 ICs;
-#X obj 397 -29870 s osc2_both;
-#X obj 1172 -29876 r osc2_both;
-#X obj 1186 -30009 r osc2_both;
+#X connect 23 0 24 0;
+#X connect 25 0 0 0;
+#X connect 26 0 0 1;
+#X connect 27 0 0 2;
+#X connect 28 0 29 0;
+#X connect 28 0 38 0;
+#X connect 29 0 30 0;
+#X connect 29 0 37 0;
+#X connect 31 0 28 0;
+#X connect 32 0 28 1;
+#X connect 33 0 28 2;
+#X connect 34 0 28 0;
+#X connect 35 0 28 1;
+#X connect 36 0 28 2;
+#X restore 264 2235 pd octaveselect;
+#X text 44 2237 Combine and debounce octave inputs;
+#X text 759 2268 Initialise GPIO on startup;
+#X text 172 2721 MCP23S17 ICs;
+#X obj 397 2864 s osc2_both;
+#X obj 1172 2858 r osc2_both;
+#X obj 1186 2725 r osc2_both;
+#X floatatom 346 2580 5 0 0 0 - - -, f 5;
+#X obj 1223 2262 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 621 2422 5 0 0 0 - - -, f 5;
 #X connect 0 0 16 0;
+#X connect 0 0 69 0;
 #X connect 0 1 20 0;
 #X connect 0 2 27 0;
 #X connect 0 3 25 0;
@@ -261,7 +300,7 @@
 #X connect 67 0 51 0;
 #X connect 68 0 52 0;
 #X restore 194 581 pd gpioRouter;
-#N canvas 1393 643 1920 984 vco 0;
+#N canvas 45 153 772 949 vco 0;
 #X obj 35 156 metro 10;
 #X obj 105 208 snapshot~;
 #X obj 105 259 *;
@@ -277,13 +316,19 @@
 #X obj 254 113 +, f 5;
 #X obj 120 232 r osc2_amt;
 #X obj 192 149 loadbang;
+#X floatatom 250 327 5 0 0 0 - - -, f 5;
+#X floatatom 216 389 5 0 0 0 - - -, f 5;
+#X floatatom 72 377 5 0 0 0 - - -, f 5;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 10 0;
+#X connect 2 0 17 0;
 #X connect 3 0 12 0;
 #X connect 4 0 1 0;
 #X connect 5 0 4 0;
+#X connect 5 0 16 0;
 #X connect 6 0 4 1;
+#X connect 6 0 15 0;
 #X connect 7 0 4 4;
 #X connect 8 0 9 0;
 #X connect 9 0 12 1;
@@ -295,7 +340,7 @@
 #X obj 527 345 r osc2_amt;
 #X obj 794 423 r osc3_amt;
 #X obj 1007 487 r osc4_amt;
-#N canvas 8 63 1920 984 effects 0;
+#N canvas 163 113 991 984 effects 0;
 #X obj 205 326 chorus_sdd_320;
 #X obj 205 403 compressor~;
 #X obj 331 409 compressor~;
@@ -308,11 +353,11 @@
 #X obj 316 543 *~;
 #X obj 204 639 +~;
 #X obj 301 642 -~;
-#X obj 359 503 hsl 128 15 0 2 0 1 empty empty side -2 -8 0 10 -262144
--1 -1 9900 1;
+#X obj 359 503 hsl 128 15 0 2 0 1 empty empty side -2 -8 0 10 #fcfcfc
+#000000 #000000 7900 1;
 #X obj 205 544 *~;
-#X obj 55 488 hsl 128 15 0 1 0 1 empty empty mid -2 -8 0 10 -262144
--1 -1 12700 1;
+#X obj 55 488 hsl 128 15 0 1 0 1 empty empty mid -2 -8 0 10 #fcfcfc
+#000000 #000000 9000 1;
 #X msg 374 350 threshold -12 \, ratio 40 \, response 40 \, gain 0 \,
 rmspeak 0 \, lookahead 5;
 #X obj 301 721 s~ out;
@@ -320,10 +365,10 @@ rmspeak 0 \, lookahead 5;
 #X obj 141 260 loadbang;
 #X obj 203 684 smoothvol~;
 #X obj 301 687 smoothvol~;
-#X obj 395 751 hsl 128 15 0 0.1 0 1 empty empty pan_speed -2 -8 0 10
--262144 -1 -1 3600 1;
+#X obj 401 748 hsl 128 15 0 0.1 0 1 empty empty pan_speed -2 -8 0 10
+#fcfcfc #000000 #000000 7100 1;
 #X obj 393 788 hsl 128 15 0 1 0 1 empty empty pan_amplitude -2 -8 0
-10 -262144 -1 -1 8300 1;
+10 #fcfcfc #000000 #000000 7100 1;
 #X obj 203 780 panner~;
 #X obj 239 218 bob~, f 19;
 #X obj 350 101 / 25;
@@ -342,9 +387,9 @@ rmspeak 0 \, lookahead 5;
 #X obj 460 137 r flanger-speed;
 #X obj 559 165 r flanger-intensity;
 #X obj 718 165 r flanger-feedback;
-#X obj 850 162 r flanger-mix;
-#X obj 358 663 r vol;
-#X obj 260 658 r vol;
+#X obj 853 163 r flanger-mix;
+#X obj 407 622 r vol;
+#X obj 256 639 r vol;
 #X text 333 641 Right;
 #X text 157 641 Left;
 #X obj 350 69 scalef 2 200;
@@ -354,6 +399,12 @@ rmspeak 0 \, lookahead 5;
 #X msg 392 867 start;
 #X msg 424 902 stop;
 #X msg 486 844 open /home/patch/mod12.wav;
+#X obj 93 154 osc~;
+#X floatatom 54 93 5 0 0 0 - - -, f 5;
+#X floatatom 139 123 5 0 0 0 - - -, f 5;
+#X floatatom 468 69 5 0 0 0 - - -, f 5;
+#X floatatom 177 202 5 0 0 0 - - -, f 5;
+#X floatatom 449 684 5 0 0 0 - - -, f 5;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 1 0 5 0;
@@ -401,12 +452,15 @@ rmspeak 0 \, lookahead 5;
 #X connect 34 0 29 2;
 #X connect 35 0 24 0;
 #X connect 36 0 46 0;
+#X connect 36 0 56 0;
 #X connect 37 0 47 0;
+#X connect 37 0 57 0;
 #X connect 38 0 48 0;
 #X connect 39 0 31 0;
 #X connect 40 0 32 0;
 #X connect 41 0 33 0;
 #X connect 42 0 20 1;
+#X connect 42 0 58 0;
 #X connect 43 0 19 1;
 #X connect 46 0 25 0;
 #X connect 47 0 26 0;
@@ -414,6 +468,8 @@ rmspeak 0 \, lookahead 5;
 #X connect 50 0 49 0;
 #X connect 51 0 49 0;
 #X connect 52 0 49 0;
+#X connect 54 0 53 0;
+#X connect 55 0 53 1;
 #X restore 195 626 pd effects;
 #X obj 190 211 r osc1_octave;
 #X obj 898 363 r osc4_sin;
@@ -426,8 +482,8 @@ rmspeak 0 \, lookahead 5;
 #X obj 357 241 r osc2_sin;
 #X obj 418 215 r osc2_tri;
 #X obj 97 276 selector 2;
-#X obj 187 280 selector, f 11;
-#X obj 250 311 s master_freq;
+#X obj 182 281 selector, f 11;
+#X obj 295 314 s master_freq;
 #X obj 531 216 r freq;
 #X obj 588 410 r vco;
 #X obj 490 441 expr $f1 * (1-$f2);
@@ -439,8 +495,8 @@ rmspeak 0 \, lookahead 5;
 #X obj 322 133 s freq;
 #X obj 310 686 s overdrive;
 #X obj 511 488 r overdrive;
-#X obj 311 651 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+#X obj 313 654 hsl 128 15 0 100 0 0 empty s-overdrive empty -2 -8 0
+10 #fcfcfc #000000 #000000 127 1;
 #X obj 462 546 expr $f1 * (1+$f2);
 #X obj 517 515 t b f;
 #X obj 829 491 r overdrive;
@@ -449,12 +505,12 @@ rmspeak 0 \, lookahead 5;
 #X obj 1031 598 r overdrive;
 #X obj 1008 674 expr $f1 * (1+$f2);
 #X obj 1055 631 t b f;
-#X obj 651 142 pigpio 17;
+#X obj 636 138 pigpio 17;
 #X obj 532 128 pigpio 27;
-#X obj 166 311 pigpio 22;
+#X obj 179 346 pigpio 22;
 #X obj 974 443 freqbeat 4;
 #X obj 712 347 freqbeat 3;
-#X obj 172 455 pigpio 2;
+#X obj 172 484 pigpio 2;
 #X obj 416 311 freqbeat 10;
 #X obj 722 165 t f f f, f 30;
 #X text 722 81 LFO toggle;
@@ -469,6 +525,446 @@ rmspeak 0 \, lookahead 5;
 #X text 25 626 Audio filtering and output;
 #X text 24 601 VCO calculations;
 #X text 24 575 GPIO routing;
+#X floatatom 314 370 5 0 0 0 - - -, f 5;
+#X obj 680 738 osc~;
+#X floatatom 654 707 5 0 0 0 - - -, f 5;
+#X floatatom 726 707 5 0 0 0 - - -, f 5;
+#N canvas 1574 376 583 708 panel 1;
+#X obj 29 154 cnv 15 300 420 empty empty empty 20 12 0 14 #000000 #404040
+0;
+#X obj 29 9 cnv 15 300 140 empty empty empty 20 12 0 14 #000000 #404040
+0;
+#X obj 154 206 vsl 15 64 0.01 1 1 1 osc3_freq sensor-osc3_freq osc3_freq
+0 -9 0 10 #fcfcfc #000000 #000000 1500 1;
+#X obj 66 206 vsl 15 64 0.01 1 1 1 osc2_freq sensor-osc2_freq osc2_freqzzz
+0 -9 0 10 #fcfcfc #000000 #000000 1450 1;
+#X obj 240 207 vsl 15 64 0.01 1 1 1 osc4_freq sensor-osc4_freq osc4_freq
+0 -9 0 10 #fcfcfc #000000 #000000 2550 1;
+#X obj 155 332 vsl 15 64 0 1 0 1 osc3_amt sensor-osc3_amt osc3_amt
+0 -9 0 10 #fcfcfc #000000 #000000 1550 1;
+#X obj 68 334 vsl 15 64 0 1 0 1 osc2_amt sensor-osc2_amt osc2_amt 0
+-9 0 10 #fcfcfc #000000 #000000 6300 1;
+#X obj 240 333 vsl 15 64 0 1 0 1 osc4_amt sensor-osc4_amt osc4_amt
+0 -9 0 10 #fcfcfc #000000 #000000 1160 1;
+#X obj 234 515 hradio 13 0 1 4 osc4_octave sensor-osc4_octave osc4_octave
+0 -8 0 10 #fcfcfc #000000 #000000 0;
+#X obj 145 515 hradio 13 0 1 4 osc3_octave sensor-osc3_octave osc3_octave
+0 -8 0 10 #fcfcfc #000000 #000000 0;
+#X obj 50 515 hradio 13 0 1 4 osc2_octave sensor-osc2_octave osc2_octave
+0 -8 0 10 #fcfcfc #000000 #000000 2;
+#X obj 63 442 tgl 15 1 osc2_sin sensor-osc2_sin osc2_sin 17 7 0 10
+#fcfcfc #000000 #000000 1 1;
+#X obj 63 463 tgl 15 1 osc2_tri sensor-osc2_tri osc2_tri 17 7 0 10
+#fcfcfc #000000 #000000 1 1;
+#X obj 148 441 tgl 15 1 osc3_sin sensor-osc3_sin osc3_sin 17 7 0 10
+#fcfcfc #000000 #000000 0 1;
+#X obj 148 462 tgl 15 1 osc3_tri sensor-osc3_tri osc3_tri 17 7 0 10
+#fcfcfc #000000 #000000 1 1;
+#X obj 239 442 tgl 15 1 osc4_sin sensor-osc4_sin osc4_sin 17 7 0 10
+#fcfcfc #000000 #000000 0 1;
+#X obj 239 463 tgl 15 1 osc4_tri sensor-osc4_tri osc4_tri 17 7 0 10
+#fcfcfc #000000 #000000 0 1;
+#X obj 67 46 vsl 15 64 0 1 0 1 osc1_freq sensor-osc1_freq osc1_freq
+0 -9 0 10 #fcfcfc #000000 #000000 3550 1;
+#X obj 195 48 hradio 13 0 1 4 osc1_octave sensor-osc1_octave osc1_octave
+0 -8 0 10 #fcfcfc #000000 #000000 0;
+#X obj 120 49 tgl 15 1 osc1_sin sensor-osc1_sin osc1_sin 17 7 0 10
+#fcfcfc #000000 #000000 1 1;
+#X obj 120 71 tgl 15 1 osc1_tri sensor-osc1_tri osc1_tri 17 7 0 10
+#fcfcfc #000000 #000000 1 1;
+#X floatatom 187 107 5 0 0 0 - - -, f 5;
+#X obj 129 156 cnv 19 95 20 empty empty MODULATOR 5 11 0 14 #000000
+#fcfcfc 0;
+#X obj 124 10 cnv 19 95 20 empty empty OSCILLATOR 5 11 0 14 #000000
+#fcfcfc 0;
+#X obj 43 277 cnv 19 80 20 empty empty FREQUENCY 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 133 277 cnv 19 80 20 empty empty FREQUENCY 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 224 277 cnv 19 80 20 empty empty FREQUENCY 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 38 119 cnv 19 80 20 empty empty FREQUENCY 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 139 47 cnv 19 30 20 empty empty sin 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 139 69 cnv 19 30 20 empty empty tri 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 196 66 cnv 19 50 20 empty empty OCTAVE 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 167 438 cnv 19 30 20 empty empty sin 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 167 460 cnv 19 30 20 empty empty tri 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 256 438 cnv 19 30 20 empty empty sin 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 256 460 cnv 19 30 20 empty empty tri 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 81 438 cnv 19 30 20 empty empty sin 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 81 460 cnv 19 30 20 empty empty tri 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 50 533 cnv 19 50 20 empty empty OCTAVE 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 145 533 cnv 19 50 20 empty empty OCTAVE 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 234 533 cnv 19 50 20 empty empty OCTAVE 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 57 404 cnv 19 60 20 empty empty AMOUNT 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 139 404 cnv 19 60 20 empty empty AMOUNT 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 226 404 cnv 19 60 20 empty empty AMOUNT 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 29 579 cnv 15 300 80 empty empty empty 20 12 0 14 #000000 #404040
+0;
+#X obj 155 613 tgl 15 1 lfo sensor-lfo lfo 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 240 610 tgl 15 1 vco sensor-vco vco 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 67 613 tgl 15 1 sub-osc sensor-sub-osc sub-osc 17 7 0 10 #fcfcfc
+#000000 #000000 1 1;
+#X obj 57 482 cnv 19 60 20 empty empty WAVEFORM 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 140 482 cnv 19 60 20 empty empty WAVEFORM 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 228 482 cnv 19 60 20 empty empty WAVEFORM 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 51 185 nbx 4 14 -1e+37 1e+37 0 0 empty osc2_freq empty 0 -8
+0 10 #000000 #fcfcfc #000000 0.0288614 256 0;
+#X obj 335 9 cnv 15 150 140 empty empty empty 20 12 0 14 #000000 #404040
+0;
+#X obj 334 154 cnv 15 150 320 empty empty empty 20 12 0 14 #000000
+#404040 0;
+#X obj 334 479 cnv 15 150 180 empty empty empty 20 12 0 14 #000000
+#404040 0;
+#X obj 382 548 vsl 15 64 0.01 1 1 1 vol \$0-r-vol Volume 0 -9 0 10
+#fcfcfc #000000 #000000 5352 1;
+#X obj 355 387 hsl 64 15 0 1 0 1 flanger-mix sensor-flanger-mix flanger-mix
+-2 -8 0 10 #fcfcfc #000000 #000000 1350 1;
+#X obj 353 327 hsl 64 15 0 1 0 1 flanger-feedback sensor-flanger-feedback
+flanger-feedback -2 -8 0 10 #fcfcfc #000000 #000000 1460 1;
+#X obj 352 270 hsl 64 15 0 1 0 1 flanger-intensity sensor-flanger-intensity
+flanger-intensity -2 -8 0 10 #fcfcfc #000000 #000000 1060 1;
+#X obj 355 209 hsl 64 15 0 1 0 1 flanger-speed sensor-flanger-speed
+flanger-speed -2 -8 0 10 #fcfcfc #000000 #000000 1260 1;
+#X obj 356 101 hsl 64 15 0 1 0 1 filter-resonance sensor-filter-resonance
+filter-resonance -2 -8 0 10 #fcfcfc #000000 #000000 4550 1;
+#X obj 356 48 hsl 64 15 0 1 0 1 filter-cutoff sensor-filter-cutoff
+filter-cutoff -2 -8 0 10 #fcfcfc #000000 #000000 1450 1;
+#X obj 356 498 hsl 64 15 1 100 1 1 s-overdrive sensor-overdrive overdrive
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 369 11 cnv 19 95 20 empty empty FILTER 5 11 0 14 #000000 #fcfcfc
+0;
+#X obj 140 185 nbx 4 14 -1e+37 1e+37 0 0 empty osc3_freq empty 0 -8
+0 10 #000000 #fcfcfc #000000 0.0299358 256 0;
+#X obj 225 185 nbx 4 14 -1e+37 1e+37 0 0 empty osc4_freq empty 0 -8
+0 10 #000000 #fcfcfc #000000 0.0644947 256 0;
+#X obj 367 623 cnv 19 50 20 empty empty VOLUME 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 369 161 cnv 19 95 20 empty empty FLANGER 5 11 0 14 #000000 #fcfcfc
+0;
+#X obj 351 228 cnv 19 60 20 empty empty SPEED 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 232 585 cnv 19 50 20 empty empty VCO 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 149 584 cnv 19 50 20 empty empty LFO 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 56 584 cnv 19 50 20 empty empty SUB_OSC 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 53 26 nbx 4 14 -1e+37 1e+37 0 0 empty osc1_freq empty 0 -8 0
+10 #000000 #fcfcfc #000000 0.563492 256 0;
+#X obj 353 68 cnv 19 60 20 empty empty CUTOFF 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 429 49 nbx 4 14 -1e+37 1e+37 0 0 empty filter-cutoff empty 0
+-8 0 10 #000000 #fcfcfc #000000 0.230159 256 0;
+#X obj 428 102 nbx 4 14 -1e+37 1e+37 0 0 empty filter-resonance empty
+0 -8 0 10 #000000 #fcfcfc #000000 0.722222 256 0;
+#X obj 353 119 cnv 19 60 20 empty empty RESONANCE 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 220 103 cnv 19 90 20 empty empty DRONE1 5 11 0 26 #000000 #fcfcfc
+0;
+#X obj 353 518 cnv 19 70 20 empty empty OVERDRIVE 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 53 309 nbx 4 14 -1e+37 1e+37 0 0 empty osc2_amt empty 0 -8 0
+10 #000000 #fcfcfc #000000 1 256 0;
+#X obj 142 309 nbx 4 14 -1e+37 1e+37 0 0 empty osc3_amt empty 0 -8
+0 10 #000000 #fcfcfc #000000 0.246032 256 0;
+#X obj 227 309 nbx 4 14 -1e+37 1e+37 0 0 empty osc4_amt empty 0 -8
+0 10 #000000 #fcfcfc #000000 0.184127 256 0;
+#X obj 349 291 cnv 19 70 20 empty empty INTENSITY 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 433 209 nbx 4 14 -1e+37 1e+37 0 0 empty flanger-speed empty
+0 -8 0 10 #000000 #fcfcfc #000000 0.2 256 0;
+#X obj 431 269 nbx 4 14 -1e+37 1e+37 0 0 empty flanger-intensity empty
+0 -8 0 10 #000000 #fcfcfc #000000 0.168254 256 0;
+#X obj 430 326 nbx 4 14 -1e+37 1e+37 0 0 empty flanger-feedback empty
+0 -8 0 10 #000000 #fcfcfc #000000 0.231746 256 0;
+#X obj 430 385 nbx 4 14 -1e+37 1e+37 0 0 empty flanger-mix empty 0
+-8 0 10 #000000 #fcfcfc #000000 0.214286 256 0;
+#X obj 350 345 cnv 19 70 20 empty empty FEEDBACK 5 11 0 10 #000000
+#fcfcfc 0;
+#X obj 350 407 cnv 19 70 20 empty empty MIX 5 11 0 10 #000000 #fcfcfc
+0;
+#X obj 431 499 nbx 4 14 -1e+37 1e+37 0 0 empty overdrive empty 0 -8
+0 10 #000000 #fcfcfc #000000 1 256 0;
+#X obj 426 624 nbx 4 14 -1e+37 1e+37 0 0 empty vol empty 0 -8 0 10
+#000000 #fcfcfc #000000 0.500089 256 0;
+#X obj 221 125 cnv 19 95 20 empty empty by_nullpainter 5 11 0 12 #000000
+#fcfcfc 0;
+#X connect 18 0 21 0;
+#X restore 81 702 pd panel;
+#X floatatom 338 176 5 0 0 0 - - -, f 5;
+#X floatatom 514 320 5 0 0 0 - - -, f 5;
+#X obj 1067 39 text define \$0-parameters;
+#X msg 987 118 read ./parameters.txt;
+#X msg 1007 71 write ./parameters.txt;
+#X obj 1065 12 declare -path ./externals;
+#N canvas 50 146 1281 761 init 0;
+#X obj 115 129 loadbang;
+#X msg 93 294 0.5;
+#X msg 719 195 1;
+#X msg 682 412 1;
+#X msg 799 68 1;
+#X obj 154 431 s sensor-filter-cutoff;
+#X obj 158 389 s sensor-filter-resonance;
+#X obj 160 320 s \$0-r-vol;
+#X obj 28 484 s sensor-osc1_freq;
+#X obj 307 467 s sensor-osc1_amt;
+#X obj 472 537 s sensor-flanger-speed;
+#X obj 463 570 s sensor-flanger-intensity;
+#X obj 430 643 s sensor-flanger-feedback;
+#X obj 449 605 s sensor-flanger-mix;
+#X obj 724 637 s sensor-overdrive;
+#X obj 147 183 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 867 120 s sensor-osc3_tri;
+#X obj 845 147 s sensor-osc3_sin;
+#X obj 846 193 s sensor-osc3_octave;
+#X obj 787 247 s sensor-osc1_tri;
+#X obj 766 275 s sensor-osc1_sin;
+#X obj 766 320 s sensor-osc1_octave;
+#X obj 536 285 s sensor-osc1_octave;
+#X obj 729 492 s sensor-osc2_sin;
+#X obj 750 464 s sensor-osc2_tri;
+#X msg 530 244 0;
+#X obj 1036 488 s sensor-osc2_freq;
+#X obj 1034 543 s sensor-osc3_freq;
+#X obj 1028 597 s sensor-osc4_freq;
+#X obj 222 516 s sensor-osc2_amt;
+#X msg 330 421 0.75;
+#X obj 89 585 s sensor-osc3_amt;
+#X obj 225 582 s sensor-osc4_amt;
+#X obj 732 590 s sensor-sub-osc;
+#X msg 997 76 1;
+#X obj 1065 128 s sensor-osc4_tri;
+#X obj 1043 155 s sensor-osc4_sin;
+#X obj 1044 201 s sensor-osc4_octave;
+#X obj 568 314 s sensor-lfo;
+#X obj 595 349 s sensor-vco;
+#X msg 1005 427 0.25;
+#X msg 1071 47 0;
+#X msg 104 519 0.2, f 7;
+#X msg 461 447 0.2;
+#X msg 43 317 0.25;
+#X connect 0 0 15 0;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;
+#X connect 1 0 8 0;
+#X connect 1 0 29 0;
+#X connect 2 0 19 0;
+#X connect 2 0 20 0;
+#X connect 2 0 21 0;
+#X connect 3 0 14 0;
+#X connect 3 0 23 0;
+#X connect 3 0 24 0;
+#X connect 3 0 33 0;
+#X connect 4 0 16 0;
+#X connect 4 0 17 0;
+#X connect 4 0 18 0;
+#X connect 15 0 1 0;
+#X connect 15 0 43 0;
+#X connect 15 0 3 0;
+#X connect 15 0 2 0;
+#X connect 15 0 4 0;
+#X connect 15 0 25 0;
+#X connect 15 0 30 0;
+#X connect 15 0 34 0;
+#X connect 15 0 40 0;
+#X connect 15 0 41 0;
+#X connect 15 0 42 0;
+#X connect 25 0 22 0;
+#X connect 25 0 38 0;
+#X connect 25 0 39 0;
+#X connect 30 0 9 0;
+#X connect 34 0 36 0;
+#X connect 34 0 37 0;
+#X connect 40 0 26 0;
+#X connect 40 0 27 0;
+#X connect 40 0 28 0;
+#X connect 41 0 35 0;
+#X connect 42 0 31 0;
+#X connect 42 0 32 0;
+#X connect 42 0 5 0;
+#X connect 43 0 10 0;
+#X connect 43 0 11 0;
+#X connect 43 0 12 0;
+#X connect 43 0 13 0;
+#X connect 44 0 8 0;
+#X restore 76 742 pd init;
+#N canvas 51 119 1003 843 akai_midimix 0;
+#X obj 209 94 toggle_switch 1;
+#X obj 849 747 s \$0-r-vol;
+#X obj 838 653 ctlin 62;
+#X obj 863 714 / 128;
+#X obj 196 162 toggle_switch 3;
+#X obj 83 157 / 128;
+#X obj 212 136 s sensor-osc1_sin;
+#X obj 201 194 s sensor-osc1_tri;
+#X obj 42 522 toggle_switch 4;
+#X obj 34 587 toggle_switch 6;
+#X obj 50 561 s sensor-osc2_sin;
+#X obj 39 619 s sensor-osc2_tri;
+#X obj 238 524 toggle_switch 7;
+#X obj 230 589 toggle_switch 9;
+#X obj 246 563 s sensor-osc3_sin;
+#X obj 235 621 s sensor-osc3_tri;
+#X obj 421 525 toggle_switch 10;
+#X obj 413 590 toggle_switch 12;
+#X obj 429 564 s sensor-osc4_sin;
+#X obj 418 622 s sensor-osc4_tri;
+#X obj 68 319 / 128;
+#X obj 54 352 s sensor-osc2_freq;
+#X obj 69 190 s sensor-osc1_freq;
+#X obj 66 426 / 128;
+#X obj 52 459 s sensor-osc2_amt;
+#X obj 50 720 s sensor-osc2_octave;
+#X obj 431 106 ctlin 17;
+#X obj 433 174 s sensor-osc1_octave;
+#X obj 48 652 ctlin 21;
+#X obj 605 174 s sensor-overdrive;
+#X obj 230 318 / 128;
+#X obj 216 351 s sensor-osc3_freq;
+#X obj 233 427 / 128;
+#X obj 219 460 s sensor-osc3_amt;
+#X obj 418 428 / 128;
+#X obj 404 461 s sensor-osc4_amt;
+#X obj 398 311 / 128;
+#X obj 384 344 s sensor-osc4_freq;
+#X obj 826 107 / 128;
+#X obj 810 72 ctlin 16;
+#X obj 828 314 / 128;
+#X obj 814 347 s sensor-flanger-speed;
+#X obj 812 279 ctlin 24;
+#X obj 812 140 s sensor-filter-cutoff;
+#X obj 829 207 / 128;
+#X obj 813 172 ctlin 20;
+#X obj 815 240 s sensor-filter-resonance;
+#X obj 828 414 / 128;
+#X obj 814 447 s sensor-flanger-intensity;
+#X obj 812 379 ctlin 28;
+#X obj 815 510 / 128;
+#X obj 799 475 ctlin 46;
+#X obj 801 543 s sensor-flanger-feedback;
+#X obj 741 574 / 128;
+#X obj 727 607 s sensor-flanger-mix;
+#X obj 725 539 ctlin 50;
+#X obj 44 761 toggle_switch 25;
+#X obj 214 761 toggle_switch 26;
+#X obj 49 793 s sensor-sub-osc;
+#X obj 222 792 s sensor-lfo;
+#X obj 360 759 toggle_switch 27;
+#X obj 368 790 s sensor-vco;
+#X obj 222 656 ctlin 25;
+#X obj 397 660 ctlin 29;
+#X obj 224 724 s sensor-osc3_octave;
+#X obj 399 728 s sensor-osc4_octave;
+#X obj 619 141 / 1;
+#X obj 582 283 cnv 15 100 60 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X floatatom 643 366 3 0 0 0 - - -, f 3;
+#X obj 598 314 notein;
+#X obj 598 340 stripnote;
+#X floatatom 598 365 3 0 0 0 - - -, f 3;
+#X text 598 290 MIDI IN;
+#X floatatom 721 365 3 0 0 0 - - -, f 3;
+#X floatatom 691 364 3 0 0 0 - - -, f 3;
+#X obj 691 339 ctlin;
+#X obj 598 385 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 691 386 bng 20 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 52 284 ctlin 22;
+#X obj 50 391 ctlin 23;
+#X obj 214 283 ctlin 26;
+#X obj 217 392 ctlin 27;
+#X obj 402 393 ctlin 31;
+#X obj 382 276 ctlin 30;
+#X obj 603 106 ctlin 19;
+#X obj 58 96 ctlin 18;
+#X obj 447 141 div 30;
+#X obj 238 691 div 30;
+#X obj 413 695 div 30;
+#X obj 64 687 div 30;
+#X connect 0 0 6 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 22 0;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 12 0 14 0;
+#X connect 13 0 15 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 20 0 21 0;
+#X connect 23 0 24 0;
+#X connect 26 0 86 0;
+#X connect 28 0 89 0;
+#X connect 30 0 31 0;
+#X connect 32 0 33 0;
+#X connect 34 0 35 0;
+#X connect 36 0 37 0;
+#X connect 38 0 43 0;
+#X connect 39 0 38 0;
+#X connect 40 0 41 0;
+#X connect 42 0 40 0;
+#X connect 44 0 46 0;
+#X connect 45 0 44 0;
+#X connect 47 0 48 0;
+#X connect 49 0 47 0;
+#X connect 50 0 52 0;
+#X connect 51 0 50 0;
+#X connect 53 0 54 0;
+#X connect 55 0 53 0;
+#X connect 56 0 58 0;
+#X connect 57 0 59 0;
+#X connect 60 0 61 0;
+#X connect 62 0 87 0;
+#X connect 63 0 88 0;
+#X connect 66 0 29 0;
+#X connect 69 0 70 0;
+#X connect 69 1 70 1;
+#X connect 70 0 71 0;
+#X connect 70 1 68 0;
+#X connect 71 0 76 0;
+#X connect 74 0 77 0;
+#X connect 75 0 74 0;
+#X connect 75 1 73 0;
+#X connect 78 0 20 0;
+#X connect 79 0 23 0;
+#X connect 80 0 30 0;
+#X connect 81 0 32 0;
+#X connect 82 0 34 0;
+#X connect 83 0 36 0;
+#X connect 84 0 66 0;
+#X connect 85 0 5 0;
+#X connect 86 0 27 0;
+#X connect 87 0 64 0;
+#X connect 88 0 65 0;
+#X connect 89 0 25 0;
+#X restore 80 662 pd akai_midimix;
+#X floatatom 460 100 5 0 0 0 - - -, f 5;
+#X floatatom 440 30 5 0 0 0 - - -, f 5;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 29 0;
@@ -526,6 +1022,7 @@ rmspeak 0 \, lookahead 5;
 #X connect 45 0 10 0;
 #X connect 46 0 10 1;
 #X connect 47 0 8 3;
+#X connect 47 0 103 0;
 #X connect 48 0 9 3;
 #X connect 49 0 10 3;
 #X connect 50 0 9 1;
@@ -535,6 +1032,7 @@ rmspeak 0 \, lookahead 5;
 #X connect 54 0 11 0;
 #X connect 55 0 11 1;
 #X connect 55 1 79 1;
+#X connect 55 2 97 0;
 #X connect 55 2 56 0;
 #X connect 57 0 3 0;
 #X connect 58 0 59 1;
@@ -543,8 +1041,11 @@ rmspeak 0 \, lookahead 5;
 #X connect 60 0 55 4;
 #X connect 61 0 78 1;
 #X connect 62 0 64 1;
+#X connect 62 0 111 0;
 #X connect 63 0 64 2;
+#X connect 63 0 110 0;
 #X connect 64 0 65 0;
+#X connect 64 0 102 0;
 #X connect 67 0 70 0;
 #X connect 68 0 66 0;
 #X connect 69 0 0 2;
@@ -561,3 +1062,5 @@ rmspeak 0 \, lookahead 5;
 #X connect 84 0 3 1;
 #X connect 84 1 4 1;
 #X connect 84 2 6 1;
+#X connect 99 0 98 0;
+#X connect 100 0 98 1;
