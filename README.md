@@ -20,6 +20,9 @@ Audio samples are available on [Soundcloud](https://soundcloud.com/nullpainter/s
 
 A video of the synth in action is on [YouTube](https://www.youtube.com/watch?v=A3pWmTlM0MA).
 
+## MIDI fork
+
+A fork by [farvardin](https://github.com/farvardin) with a PureData GUI and MIDI support is [available here](https://github.com/farvardin/nullpainter_drone).
 
 ## Running
 
